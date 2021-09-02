@@ -1,7 +1,8 @@
 package com.example.pruebasExamen.Espanol.infrastructure.controller;
 
 import com.example.pruebasExamen.Espanol.application.EspanolService;
-import com.example.pruebasExamen.Ingles.infrastructure.controller.dto.output.InglesSimpleOutputDto;
+import com.example.pruebasExamen.Espanol.infrastructure.controller.dto.output.EspanolSimpleOutputDto;
+import com.example.pruebasExamen.Espanol.infrastructure.controller.dto.RespuestaEspanol;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,11 @@ public class BorrarEspanol {
     private EspanolService espanolService;
 
     @DeleteMapping
-    public ResponseEntity<InglesSimpleOutputDto> BorrarEsp(){ //throws Exception {
-        return espanolService.deleteEspanol();
+    public ResponseEntity<EspanolSimpleOutputDto> BorrarEsp(){ //throws Exception {
+
+        RespuestaEspanol respuestaEspanol = espanolService.deleteEspanol();
+
+        return new ResponseEntity<EspanolSimpleOutputDto>(null, respuestaEspanol.getHeaders(),respuestaEspanol.getStatus());
     }
 
 }

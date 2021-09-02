@@ -2,6 +2,7 @@ package com.example.pruebasExamen.Ingles.infrastructure.controller;
 
 import com.example.pruebasExamen.Ingles.application.InglesService;
 import com.example.pruebasExamen.Ingles.infrastructure.controller.dto.output.InglesSimpleOutputDto;
+import com.example.pruebasExamen.Ingles.infrastructure.controller.dto.RespuestaIngles;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,9 @@ public class BorrarPalabraIngles {
 
     @DeleteMapping("/{palabra}")
     public ResponseEntity<InglesSimpleOutputDto> BorrarPalabraIng(@PathVariable String palabra) {
-        return  inglesService.deletePalabraIngles(palabra);
+
+        RespuestaIngles respuestaIngles = inglesService.deletePalabraIngles(palabra);
+
+        return new ResponseEntity<InglesSimpleOutputDto>(null, respuestaIngles.getHeaders(),respuestaIngles.getStatus());
     }
 }

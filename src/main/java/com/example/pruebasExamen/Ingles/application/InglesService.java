@@ -1,24 +1,20 @@
 package com.example.pruebasExamen.Ingles.application;
 
 import com.example.pruebasExamen.Ingles.infrastructure.controller.dto.input.InglesInputDto;
-import com.example.pruebasExamen.Ingles.infrastructure.controller.dto.output.InglesOutputDto;
-import com.example.pruebasExamen.Ingles.infrastructure.controller.dto.output.InglesSimpleOutputDto;
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
+import com.example.pruebasExamen.Ingles.infrastructure.controller.dto.RespuestaIngles;
 
 public interface InglesService {
 
-    ResponseEntity<InglesOutputDto> saveIngles(InglesInputDto inglesInputDto);
+    RespuestaIngles saveIngles(InglesInputDto inglesInputDto);
 
-    ResponseEntity<InglesOutputDto> getPalabraIngles(String palabra);
+    RespuestaIngles getPalabraIngles(String palabra);
 
-    ResponseEntity<List<InglesOutputDto>> getIngles();
+    RespuestaIngles getIngles();
 
-    ResponseEntity<InglesSimpleOutputDto> deleteIngles();
+    RespuestaIngles deleteIngles();
 
-    ResponseEntity<InglesSimpleOutputDto> deletePalabraIngles(String palabra);
+    RespuestaIngles deletePalabraIngles(String palabra);
 
-    ResponseEntity<InglesOutputDto> updateIngles(InglesInputDto inglesInputDto, String palabra);
+    RespuestaIngles updateIngles(InglesInputDto inglesInputDto, String palabra);
 
 }
